@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Suivi Croisière d'Anna</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>Suivi de l'Itinéraire d'Anna</h1>
+      </div>
+
+      <div class="controls">
+        <input type="date" id="dateSelect" onchange="findLocation()" />
+        <button onclick="setToday()">Aujourd'hui</button>
+        <button onclick="toggleWebcam()" id="webcamBtn">Webcam</button>
+      </div>
+
+      <div id="status"></div>
+
+      <div class="map-container">
+        <div class="map-wrapper">
+          <div id="map"></div>
+        </div>
+        <div class="info-panel">
+          <h3>Itinéraire</h3>
+          <div id="locationsList"></div>
+        </div>
+      </div>
+
+      <div id="webcamContainer" class="webcam-container" style="display: none">
+        <div class="webcam-header">
+          <h3>Webcam Le Soléal</h3>
+          <div class="webcam-controls">
+            <button onclick="toggleWebcam()" class="close-btn">Fermer</button>
+          </div>
+        </div>
+        <video id="webcamFeed" autoplay controls>
+          <source
+            src="https://media.ponant.com/webcam/soleal"
+            type="video/mp4"
+          />
+          Votre navigateur ne supporte pas la vidéo.
+        </video>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
